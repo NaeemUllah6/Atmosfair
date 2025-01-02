@@ -5,7 +5,7 @@ const CustomSelect = ({ type, options, value, placeholder }) => {
     <>
       {type === 'select' && (
         <select
-          className="h-[40px] font-lato text-sm text-[#5D606D] w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:black focus:shadow-none"
+          className="h-[40px] font-lato text-sm text-[#5D606D] w-full p-2 border border-gray-300 rounded-md "
           value={value}
         >
           {placeholder && (

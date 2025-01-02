@@ -107,7 +107,7 @@ const Footer = () => {
     },
   ]
   return (
-    <div className='bg-[#091526] py-10'>
+    <div className='bg-[#091526] pb-5 pt-10'>
       <div className="container">
         <div className="flex flex-wrap md:flex-nowrap gap-5">
           <div className="flex flex-col gap-4 col-span  -2">

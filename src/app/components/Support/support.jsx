@@ -50,8 +50,10 @@ const Support = () => {
                         </p>
                     </div>
                     <div className='flex justify-end mt-8    gap-4'>
-                <button className='text-xs md:text-base px-3 w-full md:w-fit md:px-6 py-[10px] md:text-[18px] border rounded-lg font-semibold border-[#373940] text-[#484A54]'>Directly to donation account</button>
-                <button className='text-xs md:text-base px-3 w-fit md:w-fit md:px-6 py-[10px] bg-[#C0CF32] rounded-lg font-semibold border-[#373940] text-[#030303]'>Donate Now</button>
+                <button className='text-xs
+                 md:text-base px-3 w-fit md:w-fit md:px-6 py-[10px] md:text-[18px] border rounded-lg font-semibold border-[#373940] text-[#484A54]'>Directly to donation account</button>
+                <button className='text-xs
+                 md:text-base px-3 w-fit md:w-fit md:px-6 py-[10px] bg-[#C0CF32] rounded-lg font-semibold border-[#373940] text-[#030303]'>Donate Now</button>
             </div>
                 </div>
             </div>
