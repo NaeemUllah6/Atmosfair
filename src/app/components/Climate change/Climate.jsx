@@ -81,7 +81,7 @@ const Climate = () => {
                                 <SwiperSlide key={items.id} className="h-auto">
                                     <div className='p-4 z-50 group border shadow-custom-all rounded-2xl hover:border-[#C0CF32] transition-transform duration-300 hover:bg-[#fafdd9] overflow-hidden relative'>
                                         <div className='transition-transform duration-300 group-hover:scale-5'>
-                                            <Image src={items.icon} alt='sliderImage' className='transition-transform duration-300 group-hover:scale-105' />
+                                            <Image src={items.icon} alt='sliderImage' className='transition-transform duration-300 group-hover:scale-105 w-full' />
                                         </div>
                                         <div className='mt-2 '>
                                             <p className='font-bold text-[18px] text-[#373940] font-lato'>{items.heading}</p>

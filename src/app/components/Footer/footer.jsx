@@ -17,20 +17,20 @@ const Footer = () => {
     {
       label: 'Email Address:',
       link: 'mailto:info@atmosfair.de',
-      text:'info@atmosfair.de'
+      text: 'info@atmosfair.de'
     },
     {
       label: 'Phone Number:',
       link: 'tel:+49 (0) 30 120 84 80 – 0',
-      text:'+49 (0) 30 120 84 80 – 0'
+      text: '+49 (0) 30 120 84 80 – 0'
     },
     {
       label: 'Address:',
       link: 'atmosfair gGmb Harzer Straße 3912059 Berlin',
-      text:'atmosfair gGmbH Harzer Straße 3912059 Berlin'
+      text: 'atmosfair gGmbH Harzer Straße 3912059 Berlin'
     },
   ]
-  const icons= [
+  const icons = [
     {
       icon: linkedin,
       link: 'https://linkedin.com'
@@ -49,7 +49,7 @@ const Footer = () => {
     },
   ]
 
-  const icons2= [
+  const icons2 = [
     {
       icon: facebok,
       link: 'https://linkedin.com'
@@ -113,7 +113,7 @@ const Footer = () => {
           <div className="flex flex-col gap-4 col-span  -2">
             <Image src={logo} alt='' />
             <p className='text-base font-lato font-normal text-white block md:hidden'>
-            Lorum ipsum Lorum ipsumLorum ipsumLorum ipsumLorum ipsumLorum ipsumLorum ipsum
+              Lorum ipsum Lorum ipsumLorum ipsumLorum ipsumLorum ipsumLorum ipsumLorum ipsum
             </p>
             <div className='flex gap-[22px] '>
               {
@@ -157,29 +157,29 @@ const Footer = () => {
         {/* ------------contact------------ */}
         <div className='flex flex-col gap-4 my-6'>
           <h2 className='block md:hidden font-lato text-[18px] text-white'>Kontakt</h2>
-           {
-            contact.map((items, index)=>(
+          {
+            contact.map((items, index) => (
               <div className='py-3 px-4 block md:hidden rounded-[14px] bg-[#102541]'>
-              <p className='font-base font-lato text-white'>{items.label}</p>
-              <a className='font-base font-lato text-white font-medium' href={items.link} target='blank' key={index}>{items.text}</a>
-            </div>
+                <p className='font-base font-lato text-white'>{items.label}</p>
+                <a className='font-base font-lato text-white font-medium' href={items.link} target='blank' key={index}>{items.text}</a>
+              </div>
             ))
-           }
-           </div>
-           <div className='bg-[#FAFAFA] h-[1px]'></div>
-           <div className='flex justify-between mt-6'>
-           <p className='font-medium font-lato text-sm text-center md:text-start text-[#F3F3F5]'>© 2024 Atmosphere. All rights reserved.</p>
-           <div className='flex items-center gap-[22px] '>
-           
-              {
-                icons2.map((icon, index) => (
-                  <a className='hidden md:block' target='blank' key={index} href={icon.link}>
-                    <Image width={40} height={40} src={icon.icon} alt='' />
-                  </a>
-                ))
-              }
-            </div>
-           </div>
+          }
+        </div>
+        <div className='bg-[#FAFAFA] h-[1px]'></div>
+        <div className='flex justify-between mt-6'>
+          <p className='font-medium font-lato text-sm text-center md:text-start text-[#F3F3F5]'>© 2024 Atmosphere. All rights reserved.</p>
+          <div className='flex items-center gap-[22px] '>
+
+            {
+              icons2.map((icon, index) => (
+                <a className='hidden md:block' target='blank' key={index} href={icon.link}>
+                  <Image width={40} height={40} src={icon.icon} alt='' />
+                </a>
+              ))
+            }
+          </div>
+        </div>
       </div>
     </div>
   )
