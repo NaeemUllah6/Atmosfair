@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+*{
+  box-sizing: border-box;
+}
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
@@ -17,5 +21,29 @@
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-lato), sans-serif;
+}
+
+input[type="radio"] {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  position: relative;
+  width: 18px !important;
+  height: 18px !important;
+  background-image: url('/images/uncheck.svg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  border: none;
+}
+
+input[type="radio"]:checked {
+  background-image: url('/images/checked.svg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 18px !important;
+  height: 18px !important;
 }
