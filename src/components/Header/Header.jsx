@@ -1,5 +1,5 @@
 'use client';
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import Image from 'next/image';
 import Dropdown from "@/common/assets/images/dropdown.svg";
 import HeaderAvatar from "@/common/assets/images/headerAvatar.svg";
@@ -18,6 +18,10 @@ export default function Header() {
   const [openDropdown, setOpenDropdown] = useState(null);
   const [profileOpen, setProfileOpen] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+ 
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const profileDropdownRef = useRef(null);
+  const menuDropdownRef = useRef(null);
 
 
   const links = [
@@ -37,13 +41,38 @@ export default function Header() {
     { name: "Über uns", dropdown: ["Was macht atmosfair", "atmosfair Team", "Andere über uns", 'Jahresberichte', 'Newsletter', 'Stellenangebote'] },
   ];
 
+  
+
+  // Toggle profile dropdown
   const toggleProfileDropdown = () => {
     setProfileOpen(!profileOpen);
   };
+
+  // Toggle menu dropdown
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
   };
 
+  // Handle click outside the dropdown
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      // Close the profile dropdown if clicked outside
+      if (profileDropdownRef.current && !profileDropdownRef.current.contains(event.target)) {
+        setProfileOpen(false);
+      }
+
+      // Close the menu dropdown if clicked outside
+      if (menuDropdownRef.current && !menuDropdownRef.current.contains(event.target)) {
+        setIsDropdownOpen(false);
+      }
+    };
+
+    document.addEventListener("click", handleClickOutside);
+
+    return () => {
+      document.removeEventListener("click", handleClickOutside);
+    };
+  }, []);
   const [scroll, setscroll] = useState(false)
   useEffect(() => {
     const handleScroll = () => {
@@ -61,18 +90,17 @@ export default function Header() {
   }, [])
   const [selectedLanguage, setSelectedLanguage] = useState({
     text: "DE",
-    icon: Language, // Default icon
+    icon: Language, 
   });
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
   const languages = [
     {
       text: "DE",
-      icon: Language, // Replace with the actual import for DE icon
+      icon: Language,
     },
     {
       text: "EN",
-      icon: USA, // Replace with the actual import for USA icon
+      icon: USA,
     },
   ];
 
@@ -123,6 +151,7 @@ export default function Header() {
                     {/* ------------------custom select---------------- */}
                     <div className="relative w-fit">
                       <input
+                      id="language"
                         type="text"
                         value={selectedLanguage.text}
                         placeholder="DE"
@@ -130,9 +159,9 @@ export default function Header() {
                         onClick={toggleDropdown}
                         readOnly
                       />
-                      <div className="absolute top-[6px] left-[6px]">
+                      <label for='language' className="absolute top-[6px] left-[6px]">
                         <Image src={selectedLanguage.icon} alt="icon" width={25} height={20} />
-                      </div>
+                      </label>
                       {/* Dropdown */}
                       {isDropdownOpen && (
                         <ul className="absolute top-full left-0 w-full mt-1 bg-white border border-gray-300 rounded-md shadow-md z-10">
@@ -157,7 +186,7 @@ export default function Header() {
                       )}
                     </div>
                     {/* ------------------custom select end---------------- */}
-                    <div className="relative block lg:hidden">
+                    <div className="relative block lg:hidden" ref={menuDropdownRef} >
                       <button
                         onClick={toggleProfileDropdown}
                         className="flex items-center space-x-2"
@@ -264,10 +293,11 @@ export default function Header() {
             <li>
               <Button className=" transition-all duration-200 hover:bg-[#C0CF32] hover:text-black text-white   px-5 rounded-[10px] font-[600] font-lato bg-[#D06735]" ButtonText="Donate" />
             </li>
-            <li>
+            <li  ref={menuDropdownRef}>
               {/* ------------------custom select---------------- */}
               <div className="relative w-fit">
                 <input
+                id="language2"
                   type="text"
                   value={selectedLanguage.text}
                   placeholder="DE"
@@ -275,9 +305,9 @@ export default function Header() {
                   onClick={toggleDropdown}
                   readOnly
                 />
-                <div className="absolute top-[8px] left-[6px]">
+                <label for="language2" className="absolute top-[8px] left-[6px]">
                   <Image src={selectedLanguage.icon} alt="icon" width={23} height={22} />
-                </div>
+                </label>
                 {/* Dropdown */}
                 {isDropdownOpen && (
                   <ul className="absolute top-full left-0 w-full mt-1 bg-white border border-gray-300 rounded-md shadow-md z-10">
@@ -303,7 +333,7 @@ export default function Header() {
               </div>
               {/* ------------------custom select---------------- */}
             </li>
-            <li className="relative">
+            <li className="relative"  ref={profileDropdownRef}>
               <button
                 onClick={toggleProfileDropdown}
                 className="flex items-center space-x-2"

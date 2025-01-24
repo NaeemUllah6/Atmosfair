@@ -11,8 +11,8 @@ const Maps = () => {
           <p className='text-center font-lato text-xs md:text-lg text-[#777B8B] mt-[18px]'>Nachhaltige Wirtschaft
           Helfen Sie anderen, das zu tun, was wir nicht konnten: Eine Wirtschaft auf Basis erneuerbarer Energien aufbauen.</p>
         </div>
-       <div className='max-w-[900px] mx-auto mt-7'>
-       <Image src={Map2} alt='map'/>
+       <div className='max-w-full mx-auto mt-7'>
+       <Image className='w-full' src={Map2} alt='map'/>
        </div>
       </div>
       </div>

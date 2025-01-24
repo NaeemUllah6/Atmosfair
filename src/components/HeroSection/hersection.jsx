@@ -32,14 +32,13 @@ const Hersection = () => {
     
   return (
     <div
-      style={{
-        backgroundImage: ` url(${MainLogo.src})`,
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-        backgroundRepeat: "no-repeat",
-      }}
-      className='mt-[60px] md:mt-[90px] '
-    >
+  style={{
+    backgroundImage: `linear-gradient(170deg, rgba(0,0,0,0.4) 0%, rgba(255,255,255,0.01) 100%, rgba(0,0,0,1) 10%), url(${MainLogo.src})`,
+  }}
+  className="mt-[60px] md:mt-[90px] bg-cover bg-center bg-no-repeat"
+>
+
+
       <div className='container'>
         <div className='flex justify-center flex-col gap-5 h-full pt-[80px] pb-[60px] md:pt-[60px] md:pb-[80px]'>
           <div className='w-full lg:w-[716px]'>
