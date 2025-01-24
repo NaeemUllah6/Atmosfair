@@ -43,25 +43,24 @@ export default function Header() {
 
   
 
-  // Toggle profile dropdown
+
   const toggleProfileDropdown = () => {
     setProfileOpen(!profileOpen);
   };
 
-  // Toggle menu dropdown
+
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
   };
 
-  // Handle click outside the dropdown
   useEffect(() => {
     const handleClickOutside = (event) => {
-      // Close the profile dropdown if clicked outside
+
       if (profileDropdownRef.current && !profileDropdownRef.current.contains(event.target)) {
         setProfileOpen(false);
       }
 
-      // Close the menu dropdown if clicked outside
+      
       if (menuDropdownRef.current && !menuDropdownRef.current.contains(event.target)) {
         setIsDropdownOpen(false);
       }
