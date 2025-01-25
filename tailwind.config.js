@@ -25,11 +25,12 @@ export default module.exports = {
         padding: {
           DEFAULT: '16px', // Default padding (adjust for your needs)
           sm: '16px',
-          lg: '30px',
-          xl: '60px',
+          lg: '40px',
+          xl: '80px',
         },
         maxWidth: {
-          DEFAULT: '1440px'
+          DEFAULT: '1280px',
+          lg: '1280'
         }
       },
       boxShadow: {

@@ -43,8 +43,8 @@ const ContentHeading = () => {
                     <h2 className='font-lato font-bold text-2xl  md:text-[36px] text-white'>Content Heading </h2>
                     <p className='text-[#C6C8D0] font-lato text-xs  md:text-[18px] mt-4 leading-8'>Take a look at our wide range of featured properties. We provide the best and quality housing and Hotels at very affordable prices for you and your family</p>
                 </div>
-                <div className=' flex  gap-3 rounded-[20px] mt-8'>
-                    <Climate className='bg-[#102541] px-6 py-10 h-[239px]'
+                <div className='  gap-3 rounded-[20px] mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 '>
+                    <Climate className='bg-[#102541] px-6 py-10 h-[239px] rounded-3xl'
                         slides={SLIDES_DATA}
                         height={60}
                         width={60}

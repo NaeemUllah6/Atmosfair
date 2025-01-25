@@ -29,18 +29,17 @@ const Contributions = () => {
                 <p className='font-lato font-normal text-xs md:text-base text-customLight text-center mt-3'>Unterstützen Sie geprüfte Klimaschutzprojekte mit nachgewiesener Wirkung</p>
 
 
-                <div className='mt-8'>
+                <div className='mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4'>
                     <Climate
-                        className='flex rounded-2xl border-[1px] border-[#EBF0BF] flex-col gap-4  h-full items-center px-4 py-6 !bg-white '
+                        className=' rounded-2xl border border-[#EBF0BF] flex flex-col   h-full items-center px-4 py-6 !bg-white'
                         slides={cards}
-                        slidesPerView={3}
-                        SlideMobileView={1}
-                        headclassName='font-bold text-lg font-lato'
+                        headclassName='font-bold text-lg font-lato text-center'
                         paraclassName='text-[16px] text-center font-normal text-[#5D606D] font-lato'
                         imgHeight={36}
                         imgWidth={36}
-                        SlideTabview={2}
-                    />
+                        imgclassName="mx-auto"/>
+                        
+                        
                 </div>
 
                 {/* </div> */}

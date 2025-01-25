@@ -18,10 +18,13 @@ export default function Header() {
   const [openDropdown, setOpenDropdown] = useState(null);
   const [profileOpen, setProfileOpen] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
- 
+  
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const profileDropdownRef = useRef(null);
+  const profileMobileDropdownRef = useRef(null);
   const menuDropdownRef = useRef(null);
+  const menuMobileDropdownRef = useRef(null);
+  const [clickedElement, setClickedElement] = useState(null);
 
 
   const links = [
@@ -41,7 +44,7 @@ export default function Header() {
     { name: "Über uns", dropdown: ["Was macht atmosfair", "atmosfair Team", "Andere über uns", 'Jahresberichte', 'Newsletter', 'Stellenangebote'] },
   ];
 
-  
+
 
 
   const toggleProfileDropdown = () => {
@@ -55,14 +58,32 @@ export default function Header() {
 
   useEffect(() => {
     const handleClickOutside = (event) => {
-
-      if (profileDropdownRef.current && !profileDropdownRef.current.contains(event.target)) {
-        setProfileOpen(false);
+      
+      if (profileDropdownRef.current && profileDropdownRef.current.contains(event.target)) {
+       
+        setClickedElement("profileDropdown");
+      } else if (profileMobileDropdownRef.current && profileMobileDropdownRef.current.contains(event.target)) {
+        setClickedElement("profileMobileDropdown");
+      } else {
+        if (clickedElement === "profileDropdown" && !profileDropdownRef.current.contains(event.target)) {
+          setProfileOpen(false);
+        }
+        if (clickedElement === "profileMobileDropdown" && !profileMobileDropdownRef.current.contains(event.target)) {
+          setProfileOpen(false);
+        }
       }
 
-      
-      if (menuDropdownRef.current && !menuDropdownRef.current.contains(event.target)) {
-        setIsDropdownOpen(false);
+      if (menuDropdownRef.current && menuDropdownRef.current.contains(event.target)) {
+        setClickedElement("menuDropdown");
+      } else if (menuMobileDropdownRef.current && menuMobileDropdownRef.current.contains(event.target)) {
+        setClickedElement("menuMobileDropdown");
+      } else {
+        if (clickedElement === "menuDropdown" && !menuDropdownRef.current.contains(event.target)) {
+          setIsDropdownOpen(false);
+        }
+        if (clickedElement === "menuMobileDropdown" && !menuMobileDropdownRef.current.contains(event.target)) {
+          setIsDropdownOpen(false);
+        }
       }
     };
 
@@ -71,7 +92,7 @@ export default function Header() {
     return () => {
       document.removeEventListener("click", handleClickOutside);
     };
-  }, []);
+  }, [clickedElement]);
   const [scroll, setscroll] = useState(false)
   useEffect(() => {
     const handleScroll = () => {
@@ -89,7 +110,7 @@ export default function Header() {
   }, [])
   const [selectedLanguage, setSelectedLanguage] = useState({
     text: "DE",
-    icon: Language, 
+    icon: Language,
   });
 
   const languages = [
@@ -114,11 +135,11 @@ export default function Header() {
 
   return (
     <header className={`z-50 bg-white text-[#373940] h-[60px] md:h-[90px] flex items-center fixed top-0 w-full ${scroll ? 'shadow-lg transition-all duration-200' : 'bg-white'}`}>
-      <div className="container">
-        <nav className="flex justify-between items-center gap-4">
+      <div className="container mx-auto">
+        <nav className="flex justify-between items-center gap-1">
           {/* Logo */}
           <a className="hidden md:block" href="#">
-            <Image width={135} height={50} src={MainLogoDesktop} alt="Main Logo" />
+            <Image className="min-w-[135px] min-h-[50px]t" src={MainLogoDesktop} alt="Main Logo" />
           </a>
           <a className="block md:hidden" href="#">
             <Image width={135} height={50} src={MainLogoMobile} alt="Main Logo" />
@@ -148,9 +169,10 @@ export default function Header() {
                 <div className="flex gap-3">
                   <div className="flex gap-3 items-center me-7">
                     {/* ------------------custom select---------------- */}
-                    <div className="relative w-fit">
+                    <div className="relative w-fit" ref={menuMobileDropdownRef}>
                       <input
-                      id="language"
+                       
+                        id="language"
                         type="text"
                         value={selectedLanguage.text}
                         placeholder="DE"
@@ -158,7 +180,7 @@ export default function Header() {
                         onClick={toggleDropdown}
                         readOnly
                       />
-                      <label for='language' className="absolute top-[6px] left-[6px]">
+                      <label htmlFor='language' className="absolute top-[6px] left-[6px]">
                         <Image src={selectedLanguage.icon} alt="icon" width={25} height={20} />
                       </label>
                       {/* Dropdown */}
@@ -185,7 +207,7 @@ export default function Header() {
                       )}
                     </div>
                     {/* ------------------custom select end---------------- */}
-                    <div className="relative block lg:hidden" ref={menuDropdownRef} >
+                    <div className="relative block lg:hidden" ref={profileMobileDropdownRef}>
                       <button
                         onClick={toggleProfileDropdown}
                         className="flex items-center space-x-2"
@@ -193,6 +215,7 @@ export default function Header() {
                         <Image
                           src={HeaderAvatar}
                           alt="Profile"
+                          layout="responsive"
                           width={48}
                           height={48}
                           className="rounded-full"
@@ -260,7 +283,7 @@ export default function Header() {
                   onMouseLeave={() => setOpenDropdown(null)}
                 >
                   <div className="flex items-center gap-[2px] h-[90px]">
-                    <a href="#" className="text-base headerLinks font-lato font-normal whitespace-nowrap">
+                    <a href="#" className=" headerLinks font-lato font-normal whitespace-nowrap">
                       {link.name}
                     </a>
                     <Icons.chevronDown />
@@ -292,11 +315,11 @@ export default function Header() {
             <li>
               <Button className=" transition-all duration-200 hover:bg-[#C0CF32] hover:text-black text-white   px-5 rounded-[10px] font-[600] font-lato bg-[#D06735]" ButtonText="Donate" />
             </li>
-            <li  ref={menuDropdownRef}>
+            <li ref={menuDropdownRef}>
               {/* ------------------custom select---------------- */}
               <div className="relative w-fit">
                 <input
-                id="language2"
+                  id="language2"
                   type="text"
                   value={selectedLanguage.text}
                   placeholder="DE"
@@ -304,7 +327,7 @@ export default function Header() {
                   onClick={toggleDropdown}
                   readOnly
                 />
-                <label for="language2" className="absolute top-[8px] left-[6px]">
+                <label htmlFor="language2" className="absolute top-[8px] left-[6px]">
                   <Image src={selectedLanguage.icon} alt="icon" width={23} height={22} />
                 </label>
                 {/* Dropdown */}
@@ -332,7 +355,7 @@ export default function Header() {
               </div>
               {/* ------------------custom select---------------- */}
             </li>
-            <li className="relative"  ref={profileDropdownRef}>
+            <li className="relative" ref={profileDropdownRef}>
               <button
                 onClick={toggleProfileDropdown}
                 className="flex items-center space-x-2"
@@ -340,9 +363,9 @@ export default function Header() {
                 <Image
                   src={HeaderAvatar}
                   alt="Profile"
-                  width={48}
-                  height={48}
-                  className="rounded-full"
+                  layout="intrinsic"
+                  objectFit="cover"
+                  className="rounded-full !min-h-12 !min-w-12"
                 />
                 <Image width={10} height={5} src={Dropdown} alt="Dropdown3" />
               </button>

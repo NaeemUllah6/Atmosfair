@@ -31,8 +31,8 @@ const Kumulative = () => {
       <div className='p-4 md:p-8 bg-[#1B3D6D] rounded-xl'>
           <h2 className='font-lato font-bold text-2xl md:text-[36px] text-white text-center'>Kumulative CO2 Emissionen 2022 </h2>
           <p className='text-[#C6C8D0] font-lato text-[18px] mt-3 text-center'>Summe aller CO₂-Emissionen aus Industrie und fossilen Energieträgern seit Messbeginn, in Tonnen. Exklusive Landnutzungsänderungen.</p>
-        <div className=' flex  gap-3 rounded-[20px] mt-8'>
-          <Climate className='bg-[#102541] p-6 h-[246px]'
+        <div className=' rounded-[20px] mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4'>
+          <Climate className='bg-[#102541] p-6 h-full rounded-3xl'
             slides={SLIDES_DATA}
             height={60}
             width={60}

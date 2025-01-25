@@ -17,7 +17,7 @@ const Climate = () => {
             id: 1,
             icon: Payroll1,
             heading: 'Lokale Energie-Pioniere fördern',
-            paragraph: 'Regenerative Energie aus lokaler Hand, finanziert durch Sie.'
+            paragraph: 'Schaffen Sie Zugang zu nachhaltiger Energie, wo sie am dringendsten gebraucht wird.'
         },
         {
             id: 2,
@@ -76,7 +76,7 @@ const Climate = () => {
                         >
                             {slides.map((items) => (
                                 <SwiperSlide key={items.id} className="h-auto !rounded-2xl  ">
-                                    <div className='p-4 z-50 card-shadow group border border-[#9AA628] md:border-[#EDEEF2] card-shadow hover:shadow-custom-all  rounded-2xl hover:border-[#9AA628] transition-transform duration-300 bg-[#fafdd9] md:bg-white overflow-hidden relative'>
+                                    <div className='p-4 flex justify-between flex-col z-50 card-shadow group border border-[#9AA628] md:border-[#EDEEF2] card-shadow hover:shadow-custom-all  rounded-2xl hover:border-[#9AA628] transition-transform duration-300 bg-[#fafdd9] md:bg-white overflow-hidden relative h-full'>
                                         <div className='transition-transform duration-300 group-hover:scale-5'>
                                             <Image src={items.icon} alt='sliderImage' className='transition-transform duration-300 group-hover:scale-105 w-full' />
                                         </div>

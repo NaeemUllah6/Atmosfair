@@ -21,13 +21,13 @@ const Standard = () => {
               We work with 30+ startups from small to big
             </p>
           </div>
-          <div className="w-full overflow-x-hidden mt-8">
+          <div className="w-fit overflow-x-hidden mt-8 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 justify-center items-center">
             {/* Pass slides to the Climate component */}
             <Climate
               slides={slides}
               imgWidth={176}
               imgHeight={60}
-              className="custom-slide-class !bg-transparent justify-center"
+              className="custom-slide-class !bg-transparent justify-center w-fit"
               cardclassName="bg-"
               slidesPerView={4}
               SlideMobileView={2}

@@ -1,6 +1,6 @@
 import React from 'react'
 import Image from 'next/image'
-import Map2 from '@/common/assets/images/updatedMap.png'
+import Map2 from '@/common/assets/images/Map.png'
 const Maps = () => {
   return (
     <React.Fragment>
