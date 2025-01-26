@@ -135,8 +135,8 @@ export default function Header() {
 
   return (
     <header className={`z-50 bg-white text-[#373940] h-[60px] md:h-[90px] flex items-center fixed top-0 w-full ${scroll ? 'shadow-lg transition-all duration-200' : 'bg-white'}`}>
-      <div className="container mx-auto">
-        <nav className="flex justify-between items-center gap-1">
+      <div className="container mx-auto container-md container-lg container-xl">
+        <nav className="flex justify-between lg:justify-center items-center gap-2">
           {/* Logo */}
           <a className="hidden md:block" href="#">
             <Image className="min-w-[135px] min-h-[50px]t" src={MainLogoDesktop} alt="Main Logo" />
