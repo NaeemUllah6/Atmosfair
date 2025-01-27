@@ -33,8 +33,8 @@ const Climate = ({ slides = null, imgWidth, imgHeight,imgclassName, paraclassNam
             
                 slides?.map((slide, index) => (
                 <div className={`${className? className : ''}`}>
-                <div key={index} className="!h-auto flex flex-col">
-                    <div className={`rounded-[20px] flex gap-4 flex-col h-full dark:bg-gray-800 `} id="contacts" role="tabpanel">
+                <div key={index} className="!h-auto flex flex-col ">
+                    <div className={`rounded-[20px] flex gap-4 flex-col h-full dark:bg-whiteS `} id="contacts" role="tabpanel">
                        <div className={`${className? imgclassName: ""}`}>
                        <Image src={slide.img} alt="Image" width={imgWidth} height={imgHeight} />
                        </div>

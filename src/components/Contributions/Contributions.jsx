@@ -32,9 +32,9 @@ const Contributions = () => {
                 <p className='font-lato font-normal text-xs md:text-base text-customLight text-center mt-3'>Unterstützen Sie geprüfte Klimaschutzprojekte mit nachgewiesener Wirkung</p>
 
 
-                <div className='mt-8 flex flex-wrap justify-center gap-4'>
+                <div className='mt-8 grid grid-cols-1 lg:grid-cols-3 justify-center gap-4'>
                     <Climate
-                        className={`rounded-2xl  md:w-[48%] lg:w-[calc(33%-16px)] border border-[#EBF0BF] flex flex-col  h-auto items-center px-4 py-6 !bg-white`}
+                        className={`rounded-2xl   border border-[#EBF0BF] flex flex-col  h-auto items-center px-4 py-6 !bg-white dark:bg-white`}
                         slides={cards}
                         headclassName='font-bold text-lg font-lato text-center'
                         paraclassName='text-[16px] text-center font-normal text-[#5D606D] font-lato'
