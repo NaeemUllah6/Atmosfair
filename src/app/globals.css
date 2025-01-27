@@ -18,9 +18,11 @@
   }
 }
 
-html, body {
+html,
+body {
   overflow: auto;
-  scroll-behavior: smooth; /* Add this for native smooth scrolling support */
+  scroll-behavior: smooth;
+  /* Add this for native smooth scrolling support */
 }
 
 h1,
@@ -32,7 +34,7 @@ p,
 li,
 button {
   color: black;
-  list-style: none  !important;
+  list-style: none !important;
 }
 
 body {
@@ -172,27 +174,31 @@ button {
   line-height: normal;
 }
 
-@media (max-width:1400px){
-  .headerLinks{
+@media (max-width:1400px) {
+  .headerLinks {
     font-size: 1.11vw !important;
   }
 }
+
 .svgColor svg path {
   stroke: white !important;
   stroke: white !important;
 }
+
 .svgColorBlack svg path {
-  stroke: #838799!important;
+  stroke: #838799 !important;
   stroke: #838799 !important;
 }
-@media (max-width:768px){
-  .colorchang{
-    background-color:#D06735!important;
-    color:white !important;
+
+@media (max-width:768px) {
+  .colorchang {
+    background-color: #D06735 !important;
+    color: white !important;
   }
-  .hoveradded:hover{
-    background-color:#C0CF32 !important;
-    color:black !important;
-    
+
+  .hoveradded:hover {
+    background-color: #C0CF32 !important;
+    color: black !important;
+
   }
 }

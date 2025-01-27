@@ -6,21 +6,24 @@ import Climate from '../Swiper/Swiper';
 const Contributions = () => {
     const cards = [
         {
+            id: 1,
             img: icon1,
             heading: 'Emissionen Vermeiden',
             paragraph: 'Machen Sie den ersten Schritt: erfahren Sie, wo Sie am effektivsten ansetzen können.',
         },
         {
+            id: 2,
             img: icon2,
             heading: 'Emissionen Reduzieren',
             paragraph: 'Entdecken Sie klimafreundliche Alternativen für Ihren Alltag - jede bewusste Entscheidung bringt uns dem 1,5°C-Ziel näher.',
         },
         {
+            id: 3,
             img: icon3,
             heading: 'Emissionen Kompensieren',
             paragraph: 'Gestalten Sie Klimaschutz mit: Ihre Unterstützung ermöglicht innovative Projekte und schafft neue Perspektiven im Globalen Süden.',
         },
-        
+
     ]
     return (
         <div className='py-8 md:py-10 bg-[#FAFAFA]'>
@@ -29,17 +32,15 @@ const Contributions = () => {
                 <p className='font-lato font-normal text-xs md:text-base text-customLight text-center mt-3'>Unterstützen Sie geprüfte Klimaschutzprojekte mit nachgewiesener Wirkung</p>
 
 
-                <div className='mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4'>
+                <div className='mt-8 flex flex-wrap gap-4'>
                     <Climate
-                        className=' rounded-2xl border border-[#EBF0BF] flex flex-col   h-full items-center px-4 py-6 !bg-white'
+                        className={`rounded-2xl basis-[300px] flex-grow lg:w-[33%] border border-[#EBF0BF] flex flex-col  h-auto items-center px-4 py-6 !bg-white`}
                         slides={cards}
                         headclassName='font-bold text-lg font-lato text-center'
                         paraclassName='text-[16px] text-center font-normal text-[#5D606D] font-lato'
                         imgHeight={36}
                         imgWidth={36}
-                        imgclassName="mx-auto"/>
-                        
-                        
+                        imgclassName="mx-auto" />
                 </div>
 
                 {/* </div> */}
